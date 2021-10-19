@@ -1,6 +1,5 @@
 package com.example.demo.curso.boot.domain;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,8 +12,9 @@ import javax.persistence.Table;
 @Entity
 @SuppressWarnings("serial")
 @Table(name="CARGOS")
-public class Cargo extends AbstractEntity<Serializable>{
+public class Cargo extends AbstractEntity<Long>{
 	
+
 	@Column(name="nome", nullable = false, unique = true, length = 60)
 	private String nome;
 	
@@ -40,6 +40,12 @@ public class Cargo extends AbstractEntity<Serializable>{
 	public void setDepartamento(Departamento departamento) {
 		this.departamento = departamento;
 	}
-	
-	
+
+	public List<Funcionario> getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(List<Funcionario> funcionario) {
+		this.funcionario = funcionario;
+	}
 }
